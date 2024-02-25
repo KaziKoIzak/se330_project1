@@ -8,57 +8,71 @@ class Banners extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 255, 119, 196),
+          iconTheme: const IconThemeData(
+            color: Colors.white,
+          ), // Set icon color to white
           title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Left items
-              Row(
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.home),
-                    onPressed: () {
-                      // Handle home button press
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.mail),
-                    onPressed: () {
-                      // Handle mail button press
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.notifications),
-                    onPressed: () {
-                      // Handle notifications button press
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.menu),
-                    onPressed: () {
-                      // Handle menu button press
-                    },
-                  ),
-                ],
+              // Left side - Four equally spaced out Texts
+              const Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      'Rooms',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    Text(
+                      'Menu',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    Text(
+                      'About Us',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    Text(
+                      'Contact',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ],
+                ),
               ),
 
-              // Title in the middle
-              Text(
-                'Rhapsody in Rose',
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+              // Middle - Title (Centered)
+              const Expanded(
+                child: Center(
+                  child: Text(
+                    'Rhapsody in Rose',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
               ),
 
-              // Right items
-              IconButton(
-                icon: Icon(Icons.search),
-                onPressed: () {
-                  // Handle search button press
-                },
+              // Right side - Search bar with min and max size
+              ConstrainedBox(
+                constraints: const BoxConstraints(
+                  minWidth: 100, // Adjust the minimum width as needed
+                  maxWidth: 200, // Adjust the maximum width as needed
+                ),
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Search',
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
-        ),
-        body: Center(
-          child: Text('Your App Body'),
+          elevation: 4, // Set the elevation to control the shadow depth
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(10), // Adjust the border radius as needed
+            ),
+          ),
+          shadowColor: Colors.grey[400], // Set the shadow color
         ),
       ),
     );

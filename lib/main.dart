@@ -8,10 +8,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
         appBar: CustomAppBar(), // Use the CustomAppBar widget
-        body: const Center(
+        body: Center(
           child: Text('Your main content goes here'),
         ),
       ),

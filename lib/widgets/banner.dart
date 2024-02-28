@@ -25,25 +25,25 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Row(
         children: [
           // Your app bar content goes here
-          const Expanded(
+          Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 TextButton(
                   onPressed: onRoomsPressed,
-                  child: Text('Rooms', style: TextStyle(fontSize: 24)),
+                  child: const Text('Rooms', style: TextStyle(fontSize: 24)),
                 ),
                 TextButton(
                   onPressed: onMenuPressed,
-                  child: Text('Menu', style: TextStyle(fontSize: 24)),
+                  child: const Text('Menu', style: TextStyle(fontSize: 24)),
                 ),
                 TextButton(
                   onPressed: onAboutUsPressed,
-                  child: Text('About Us', style: TextStyle(fontSize: 24)),
+                  child: const Text('About Us', style: TextStyle(fontSize: 24)),
                 ),
                 TextButton(
                   onPressed: onContactPressed,
-                  child: Text('Contact', style: TextStyle(fontSize: 24)),
+                  child: const Text('Contact', style: TextStyle(fontSize: 24)),
                 ),
               ],
             ),

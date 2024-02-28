@@ -50,8 +50,20 @@ class HomeScreen extends StatelessWidget {
           );
         },
       ),
-      body: const Center(
-        child: Text('Your default screen content goes here'),
+      body: Column(
+        children: [
+          // Image that takes up the full width of the screen
+          Expanded(
+            child: Image.asset(
+              'assets/images/678.jpg',
+              fit: BoxFit.cover, // Adjust the BoxFit as needed
+            ),
+          ),
+          // Other content below the image
+          const Center(
+            child: Text('Your default screen content goes here'),
+          ),
+        ],
       ),
     );
   }

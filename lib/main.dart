@@ -1,19 +1,57 @@
 import 'package:flutter/material.dart';
+import './widgets/aboutUsScreen.dart';
+import './widgets/contactScreen.dart';
+import './widgets/menuScreen.dart';
+import './widgets/roomsScreen.dart';
 import './widgets/banner.dart';
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Scaffold(
-        appBar: CustomAppBar(), // Use the CustomAppBar widget
-        body: Center(
-          child: Text('Your main content goes here'),
-        ),
+      home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBar(
+        onRoomsPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const RoomsScreen()),
+          );
+        },
+        onMenuPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const MenuScreen()),
+          );
+        },
+        onAboutUsPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AboutUsScreen()),
+          );
+        },
+        onContactPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ContactScreen()),
+          );
+        },
+      ),
+      body: const Center(
+        child: Text('Your default screen content goes here'),
       ),
     );
   }

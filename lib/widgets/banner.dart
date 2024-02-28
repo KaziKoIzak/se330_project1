@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  final VoidCallback? onRoomsPressed;
+  final VoidCallback? onMenuPressed;
+  final VoidCallback? onAboutUsPressed;
+  final VoidCallback? onContactPressed;
+
+  const CustomAppBar({
+    Key? key,
+    this.onRoomsPressed,
+    this.onMenuPressed,
+    this.onAboutUsPressed,
+    this.onContactPressed,
+  }) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -9,7 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: const Color.fromARGB(255, 255, 119, 196),
+      backgroundColor: const Color.fromARGB(255, 255, 182, 223),
       iconTheme: const IconThemeData(color: Colors.white),
       title: Row(
         children: [
@@ -18,16 +29,28 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('Rooms', style: TextStyle(fontSize: 12)),
-                Text('Menu', style: TextStyle(fontSize: 12)),
-                Text('About Us', style: TextStyle(fontSize: 12)),
-                Text('Contact', style: TextStyle(fontSize: 12)),
+                TextButton(
+                  onPressed: onRoomsPressed,
+                  child: Text('Rooms', style: TextStyle(fontSize: 24)),
+                ),
+                TextButton(
+                  onPressed: onMenuPressed,
+                  child: Text('Menu', style: TextStyle(fontSize: 24)),
+                ),
+                TextButton(
+                  onPressed: onAboutUsPressed,
+                  child: Text('About Us', style: TextStyle(fontSize: 24)),
+                ),
+                TextButton(
+                  onPressed: onContactPressed,
+                  child: Text('Contact', style: TextStyle(fontSize: 24)),
+                ),
               ],
             ),
           ),
           const Expanded(
             child: Center(
-              child: Text('Rhapsody in Rose', style: TextStyle(fontSize: 18)),
+              child: Text('Rhapsody in Rose', style: TextStyle(fontSize: 36)),
             ),
           ),
           ConstrainedBox(
@@ -53,6 +76,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       shadowColor: Colors.grey[400],
+      toolbarHeight: 150.0,
     );
   }
 }

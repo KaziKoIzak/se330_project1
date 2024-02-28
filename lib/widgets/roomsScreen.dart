@@ -11,12 +11,6 @@ class RoomsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        onRoomsPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const RoomsScreen()),
-          );
-        },
         onMenuPressed: () {
           Navigator.push(
             context,

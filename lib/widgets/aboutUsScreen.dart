@@ -23,12 +23,6 @@ class AboutUsScreen extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const MenuScreen()),
           );
         },
-        onAboutUsPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const AboutUsScreen()),
-          );
-        },
         onContactPressed: () {
           Navigator.push(
             context,

@@ -17,12 +17,6 @@ class MenuScreen extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const RoomsScreen()),
           );
         },
-        onMenuPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const MenuScreen()),
-          );
-        },
         onAboutUsPressed: () {
           Navigator.push(
             context,

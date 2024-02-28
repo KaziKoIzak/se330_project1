@@ -29,12 +29,6 @@ class ContactScreen extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const AboutUsScreen()),
           );
         },
-        onContactPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const ContactScreen()),
-          );
-        },
       ),
       body: const Center(
         child: Text('Contact Screen Content'),

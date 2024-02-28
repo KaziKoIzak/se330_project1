@@ -52,12 +52,11 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // Image that takes up the full width of the screen
-          Expanded(
-            child: Image.asset(
-              'assets/images/678.jpg',
-              fit: BoxFit.cover, // Adjust the BoxFit as needed
-            ),
+          // Image with fixed height of 200 pixels
+          Image.asset(
+            'assets/images/678.jpg',
+            height: 200,
+            fit: BoxFit.cover,
           ),
           // Other content below the image
           const Center(

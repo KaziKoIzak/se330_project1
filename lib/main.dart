@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
             height: 300,
             fit: BoxFit.cover,
           ),
-          const SizedBox(height: 75),
+          const SizedBox(height: 50),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -99,6 +99,107 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           // Other content below the image
+
+          const SizedBox(height: 50),
+          // Centered Text with "How may we help you?" in a large font
+          const Center(
+            child: Text(
+              'How may we help you?',
+              style: TextStyle(
+                fontSize: 36, // Set the font size as needed
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 25),
+
+          // Row with four styled square buttons
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RoomsScreen()),
+                  );
+                },
+                child: const Text(
+                  'Rooms',
+                  style: TextStyle(fontSize: 18),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 255, 210, 251),
+                  padding: const EdgeInsets.all(16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MenuScreen()),
+                  );
+                },
+                child: const Text(
+                  'Menu',
+                  style: TextStyle(fontSize: 18),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 255, 210, 251),
+                  padding: const EdgeInsets.all(16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AboutUsScreen()),
+                  );
+                },
+                child: const Text(
+                  'About Us',
+                  style: TextStyle(fontSize: 18),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 255, 210, 251),
+                  padding: const EdgeInsets.all(16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ContactScreen()),
+                  );
+                },
+                child: const Text(
+                  'Contact',
+                  style: TextStyle(fontSize: 18),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 255, 210, 251),
+                  padding: const EdgeInsets.all(16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+            ],
+          ),
+
           const Center(
             child: Text('Your default screen content goes here'),
           ),

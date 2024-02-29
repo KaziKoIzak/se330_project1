@@ -132,11 +132,12 @@ class HomeScreen extends StatelessWidget {
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 255, 210, 251),
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(8),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                ),
+                ).copyWith(
+                    fixedSize: MaterialStateProperty.all(const Size(150, 50))),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -151,11 +152,12 @@ class HomeScreen extends StatelessWidget {
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 255, 210, 251),
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(8),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                ),
+                ).copyWith(
+                    fixedSize: MaterialStateProperty.all(const Size(150, 50))),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -171,11 +173,12 @@ class HomeScreen extends StatelessWidget {
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 255, 210, 251),
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(8),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                ),
+                ).copyWith(
+                    fixedSize: MaterialStateProperty.all(const Size(150, 50))),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -191,11 +194,12 @@ class HomeScreen extends StatelessWidget {
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 255, 210, 251),
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(8),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                ),
+                ).copyWith(
+                    fixedSize: MaterialStateProperty.all(const Size(150, 50))),
               ),
             ],
           ),

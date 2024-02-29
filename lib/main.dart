@@ -58,6 +58,24 @@ class HomeScreen extends StatelessWidget {
             height: 300,
             fit: BoxFit.cover,
           ),
+          Row(
+            children: [
+              // First Image (same as the one above)
+              Image.asset(
+                'assets/images/123.jpg',
+                height: 50, // Set the height as needed
+                width: 50, // Set the width as needed
+              ),
+              // Text
+              const Text('Rhaposdy in Rose'),
+              // Second Image (same as the one above)
+              Image.asset(
+                'assets/images/123.jpg',
+                height: 50, // Set the height as needed
+                width: 50, // Set the width as needed
+              ),
+            ],
+          ),
           // Other content below the image
           const Center(
             child: Text('Your default screen content goes here'),

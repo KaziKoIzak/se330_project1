@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import './widgets/aboutUsScreen.dart';
 import './widgets/contactScreen.dart';
 import './widgets/menuScreen.dart';
@@ -58,21 +59,42 @@ class HomeScreen extends StatelessWidget {
             height: 300,
             fit: BoxFit.cover,
           ),
+          const SizedBox(height: 75),
+
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // First Image (same as the one above)
-              Image.asset(
-                'assets/images/123.jpg',
-                height: 50, // Set the height as needed
-                width: 50, // Set the width as needed
+              Expanded(
+                child: Image.asset(
+                  'assets/images/123.jpg',
+                  height: 250, // Set the height as needed
+                  width: 250, // Set the width as needed
+                ),
               ),
               // Text
-              const Text('Rhaposdy in Rose'),
+              // Text with bold, cursive, and massive font style
+              Expanded(
+                child: Center(
+                  child: Text(
+                    'Rhapsody in Rose',
+                    style: GoogleFonts.pacifico(
+                      textStyle: const TextStyle(
+                        fontSize: 50, // Set the font size as needed
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               // Second Image (same as the one above)
-              Image.asset(
-                'assets/images/123.jpg',
-                height: 50, // Set the height as needed
-                width: 50, // Set the width as needed
+              Expanded(
+                child: Image.asset(
+                  'assets/images/123.jpg',
+                  height: 250, // Set the height as needed
+                  width: 250, // Set the width as needed
+                ),
               ),
             ],
           ),

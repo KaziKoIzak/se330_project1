@@ -55,7 +55,7 @@ class HomeScreen extends StatelessWidget {
           // Image with fixed height of 200 pixels
           Image.asset(
             'assets/images/678.jpg',
-            height: 200,
+            height: 300,
             fit: BoxFit.cover,
           ),
           // Other content below the image

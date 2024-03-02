@@ -145,7 +145,9 @@ class RoomsScreen extends StatelessWidget {
                           height: 16), // Add spacing between the two components
                       // Text
                       const Text(
-                        'Your text goes here.',
+                        'Step into our charming room at Rhapsody in Rose, where comfort meets class in the most welcoming way. Nestled with two cozy chairs and shelves stacked with an array of wines, this space is like a warm hug for good times. It'
+                        's the perfect spot for a laid-back gathering or a catch-up session with friends—no wine expertise required, just a good sense of humor and a love for relaxed conversations. Imagine settling into those comfy chairs with a glass of your favorite red or white, sharing stories, and creating memories. Whether it'
+                        's a small reunion or a low-key celebration, this room sets the stage for an inviting and easygoing event, tailor-made for middle-aged and older folks who appreciate the finer things in life without the fuss. Cheers to good company and great wine in a room that feels just like home.',
                         style: TextStyle(
                           fontSize: 18, // Adjust the font size as needed
                           fontWeight: FontWeight.bold,

@@ -203,10 +203,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-
-          const Center(
-            child: Text('Your default screen content goes here'),
-          ),
         ],
       ),
     );

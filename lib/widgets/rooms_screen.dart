@@ -18,20 +18,16 @@ class _RoomsScreenState extends State<RoomsScreen> {
   // Map to associate rooms with their respective images and paragraphs
   Map<String, RoomDetails> roomDetailsMap = {
     'Room 1': RoomDetails(
-      image: 'assets/images/235.jpg',
+      image: 'assets/images/124.jpg',
       paragraph: 'Your Room 1 paragraph goes here.',
     ),
     'Room 2': RoomDetails(
-      image: 'assets/images/236.jpg',
+      image: 'assets/images/345.jpg',
       paragraph: 'Your Room 2 paragraph goes here.',
     ),
     'Room 3': RoomDetails(
-      image: 'assets/images/237.jpg',
+      image: 'assets/images/457.jpg',
       paragraph: 'Your Room 3 paragraph goes here.',
-    ),
-    'Room 4': RoomDetails(
-      image: 'assets/images/238.jpg',
-      paragraph: 'Your Room 4 paragraph goes here.',
     ),
   };
 

@@ -126,10 +126,6 @@ class HomeScreen extends StatelessWidget {
                         builder: (context) => const RoomsScreen()),
                   );
                 },
-                child: const Text(
-                  'Rooms',
-                  style: TextStyle(fontSize: 18),
-                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 255, 210, 251),
                   padding: const EdgeInsets.all(8),
@@ -138,6 +134,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ).copyWith(
                     fixedSize: MaterialStateProperty.all(const Size(150, 50))),
+                child: const Text(
+                  'Rooms',
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -146,10 +146,6 @@ class HomeScreen extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => const MenuScreen()),
                   );
                 },
-                child: const Text(
-                  'Menu',
-                  style: TextStyle(fontSize: 18),
-                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 255, 210, 251),
                   padding: const EdgeInsets.all(8),
@@ -158,6 +154,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ).copyWith(
                     fixedSize: MaterialStateProperty.all(const Size(150, 50))),
+                child: const Text(
+                  'Menu',
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -167,10 +167,6 @@ class HomeScreen extends StatelessWidget {
                         builder: (context) => const AboutUsScreen()),
                   );
                 },
-                child: const Text(
-                  'About Us',
-                  style: TextStyle(fontSize: 18),
-                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 255, 210, 251),
                   padding: const EdgeInsets.all(8),
@@ -179,6 +175,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ).copyWith(
                     fixedSize: MaterialStateProperty.all(const Size(150, 50))),
+                child: const Text(
+                  'About Us',
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -188,10 +188,6 @@ class HomeScreen extends StatelessWidget {
                         builder: (context) => const ContactScreen()),
                   );
                 },
-                child: const Text(
-                  'Contact',
-                  style: TextStyle(fontSize: 18),
-                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 255, 210, 251),
                   padding: const EdgeInsets.all(8),
@@ -200,6 +196,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ).copyWith(
                     fixedSize: MaterialStateProperty.all(const Size(150, 50))),
+                child: const Text(
+                  'Contact',
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
             ],
           ),

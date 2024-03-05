@@ -4,14 +4,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback? onRoomsPressed;
   final VoidCallback? onMenuPressed;
   final VoidCallback? onAboutUsPressed;
-  final VoidCallback? onContactPressed;
+  final VoidCallback? onCheckoutPressed;
 
   const CustomAppBar({
     Key? key,
     this.onRoomsPressed,
     this.onMenuPressed,
     this.onAboutUsPressed,
-    this.onContactPressed,
+    this.onCheckoutPressed,
   }) : super(key: key);
 
   @override
@@ -42,7 +42,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: const Text('About Us', style: TextStyle(fontSize: 24)),
                 ),
                 TextButton(
-                  onPressed: onContactPressed,
+                  onPressed: onCheckoutPressed,
                   child: const Text('Contact', style: TextStyle(fontSize: 24)),
                 ),
               ],

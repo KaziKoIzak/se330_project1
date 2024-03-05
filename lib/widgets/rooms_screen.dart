@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'about_us_screen.dart';
-import 'contact_screen.dart';
+import 'checkout_screen.dart';
 import 'menu_screen.dart';
 import 'banner.dart';
 
@@ -56,10 +56,10 @@ class _RoomsScreenState extends State<RoomsScreen> {
             MaterialPageRoute(builder: (context) => const AboutUsScreen()),
           );
         },
-        onContactPressed: () {
+        onCheckoutPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const ContactScreen()),
+            MaterialPageRoute(builder: (context) => const CheckoutScreen()),
           );
         },
       ),

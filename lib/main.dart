@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'widgets/about_us_screen.dart';
-import 'widgets/contact_screen.dart';
+import 'widgets/checkout_screen.dart';
 import 'widgets/menu_screen.dart';
 import 'widgets/rooms_screen.dart';
 import './widgets/banner.dart';
@@ -44,10 +44,10 @@ class HomeScreen extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const AboutUsScreen()),
           );
         },
-        onContactPressed: () {
+        onCheckoutPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const ContactScreen()),
+            MaterialPageRoute(builder: (context) => const CheckoutScreen()),
           );
         },
       ),
@@ -190,7 +190,7 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ContactScreen()),
+                          builder: (context) => const CheckoutScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(

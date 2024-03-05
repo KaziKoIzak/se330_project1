@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'contact_screen.dart';
+import 'checkout_screen.dart';
 import 'menu_screen.dart';
 import 'rooms_screen.dart';
 import 'banner.dart';
@@ -24,10 +24,10 @@ class AboutUsScreen extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const MenuScreen()),
           );
         },
-        onContactPressed: () {
+        onCheckoutPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const ContactScreen()),
+            MaterialPageRoute(builder: (context) => const CheckoutScreen()),
           );
         },
       ),

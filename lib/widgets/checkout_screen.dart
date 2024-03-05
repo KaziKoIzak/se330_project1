@@ -5,8 +5,8 @@ import 'menu_screen.dart';
 import 'rooms_screen.dart';
 import 'banner.dart';
 
-class ContactScreen extends StatelessWidget {
-  const ContactScreen({Key? key}) : super(key: key);
+class CheckoutScreen extends StatelessWidget {
+  const CheckoutScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

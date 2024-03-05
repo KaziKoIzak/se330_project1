@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'about_us_screen.dart';
-import 'contact_screen.dart';
+import 'checkout_screen.dart';
 import 'rooms_screen.dart';
 import 'banner.dart';
 
@@ -23,10 +23,10 @@ class MenuScreen extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const AboutUsScreen()),
           );
         },
-        onContactPressed: () {
+        onCheckoutPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const ContactScreen()),
+            MaterialPageRoute(builder: (context) => const CheckoutScreen()),
           );
         },
       ),

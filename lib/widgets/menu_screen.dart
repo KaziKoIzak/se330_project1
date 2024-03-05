@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'aboutUsScreen.dart';
-import 'contactScreen.dart';
-import 'roomsScreen.dart';
+import 'about_us_screen.dart';
+import 'contact_screen.dart';
+import 'rooms_screen.dart';
 import 'banner.dart';
 
 class MenuScreen extends StatelessWidget {

@@ -1,12 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'aboutUsScreen.dart';
-import 'contactScreen.dart';
-import 'menuScreen.dart';
+import 'about_us_screen.dart';
+import 'contact_screen.dart';
+import 'menu_screen.dart';
 import 'banner.dart';
 
-class RoomsScreen extends StatelessWidget {
+class RoomsScreen extends StatefulWidget {
   const RoomsScreen({Key? key}) : super(key: key);
+
+  @override
+  _RoomsScreenState createState() => _RoomsScreenState();
+}
+
+class _RoomsScreenState extends State<RoomsScreen> {
+  String selectedRoom = 'Room 1'; // Default selected room
+
+  // Map to associate rooms with their respective images and paragraphs
+  Map<String, RoomDetails> roomDetailsMap = {
+    'Room 1': RoomDetails(
+      image: 'assets/images/235.jpg',
+      paragraph: 'Your Room 1 paragraph goes here.',
+    ),
+    'Room 2': RoomDetails(
+      image: 'assets/images/236.jpg',
+      paragraph: 'Your Room 2 paragraph goes here.',
+    ),
+    'Room 3': RoomDetails(
+      image: 'assets/images/237.jpg',
+      paragraph: 'Your Room 3 paragraph goes here.',
+    ),
+    'Room 4': RoomDetails(
+      image: 'assets/images/238.jpg',
+      paragraph: 'Your Room 4 paragraph goes here.',
+    ),
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +68,7 @@ class RoomsScreen extends StatelessWidget {
               children: [
                 // First Image
                 Image.asset(
-                  'assets/images/235.jpg',
+                  roomDetailsMap[selectedRoom]!.image,
                   height: 300,
                   width: 300,
                   fit: BoxFit.cover,
@@ -59,7 +86,7 @@ class RoomsScreen extends StatelessWidget {
                           'Room Selections',
                           style: GoogleFonts.pacifico(
                             textStyle: const TextStyle(
-                              fontSize: 48, // Adjust the font size as needed
+                              fontSize: 48,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -68,12 +95,12 @@ class RoomsScreen extends StatelessWidget {
                         // Caption Text
                         const Text(
                           'Step into the captivating world of Rhapsody in Rose'
-                          's room selection screen—a tableau of refined elegance. Our curated spaces are an ode to indulgence, adorned in the soft hues of rose-inspired decor and bathed in inviting light. Whether for an intimate rendezvous or a lavish celebration, each room is a testament to the perfect blend of sophistication and comfort, ensuring an unforgettable experience at our wine and charcuterie haven. Choose your haven and let the enchantment begin.',
+                          's room selection screen—a tableau of refined elegance...',
                           style: TextStyle(
-                            fontFamily: 'Helvetica', // Specify Helvetica font
+                            fontFamily: 'Helvetica',
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                          ), // Adjust the font weight), // Adjust the font size as needed
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -82,26 +109,23 @@ class RoomsScreen extends StatelessWidget {
                 ),
                 // Second Image
                 Image.asset(
-                  'assets/images/235.jpg',
+                  roomDetailsMap[selectedRoom]!.image,
                   height: 300,
                   width: 300,
                   fit: BoxFit.cover,
                 ),
               ],
             ),
-            const SizedBox(
-              height: 32,
-            ),
+            const SizedBox(height: 32),
             Row(
               children: [
                 // 1. Image
                 Image.asset(
                   'assets/images/457.jpg',
-                  height: 450, // Adjust the height as needed
-                  width: 450, // Adjust the width as needed
+                  height: 450,
+                  width: 450,
                   fit: BoxFit.cover,
                 ),
-
                 // 2. Collection of Things
                 Expanded(
                   child: Padding(
@@ -114,23 +138,19 @@ class RoomsScreen extends StatelessWidget {
                           children: [
                             // Dropdown Box
                             DropdownButton<String>(
-                              // Dropdown options go here
-                              items: const [
-                                DropdownMenuItem<String>(
-                                  value: 'Option 1',
-                                  child: Text('Option 1'),
-                                ),
-                                DropdownMenuItem<String>(
-                                  value: 'Option 2',
-                                  child: Text('Option 2'),
-                                ),
-                                // Add more items as needed
-                              ],
+                              value: selectedRoom,
+                              items: roomDetailsMap.keys.map((String room) {
+                                return DropdownMenuItem<String>(
+                                  value: room,
+                                  child: Text(room),
+                                );
+                              }).toList(),
                               onChanged: (value) {
-                                // Handle dropdown value change
+                                setState(() {
+                                  selectedRoom = value!;
+                                });
                               },
                             ),
-
                             // Submit Button
                             ElevatedButton(
                               onPressed: () {
@@ -140,18 +160,13 @@ class RoomsScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-
                         // Second Component (Bottom)
-                        const SizedBox(
-                            height:
-                                16), // Add spacing between the two components
+                        const SizedBox(height: 16),
                         // Text
-                        const Text(
-                          'Step into our charming room at Rhapsody in Rose, where comfort meets class in the most welcoming way. Nestled with two cozy chairs and shelves stacked with an array of wines, this space is like a warm hug for good times. It'
-                          's the perfect spot for a laid-back gathering or a catch-up session with friends—no wine expertise required, just a good sense of humor and a love for relaxed conversations. Imagine settling into those comfy chairs with a glass of your favorite red or white, sharing stories, and creating memories. Whether it'
-                          's a small reunion or a low-key celebration, this room sets the stage for an inviting and easygoing event, tailor-made for middle-aged and older folks who appreciate the finer things in life without the fuss. Cheers to good company and great wine in a room that feels just like home.',
-                          style: TextStyle(
-                            fontSize: 18, // Adjust the font size as needed
+                        Text(
+                          roomDetailsMap[selectedRoom]!.paragraph,
+                          style: const TextStyle(
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -166,4 +181,14 @@ class RoomsScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class RoomDetails {
+  final String image;
+  final String paragraph;
+
+  RoomDetails({
+    required this.image,
+    required this.paragraph,
+  });
 }

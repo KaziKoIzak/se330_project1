@@ -51,159 +51,166 @@ class HomeScreen extends StatelessWidget {
           );
         },
       ),
-      body: Column(
-        children: [
-          // Image with fixed height of 200 pixels
-          Image.asset(
-            'assets/images/678.jpg',
-            height: 300,
-            fit: BoxFit.cover,
-          ),
-          const SizedBox(height: 50),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Image with fixed height of 200 pixels
+            Image.asset(
+              'assets/images/678.jpg',
+              height: 300,
+              fit: BoxFit.cover,
+            ),
+            const SizedBox(height: 50),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // First Image (same as the one above)
-              Expanded(
-                child: Image.asset(
-                  'assets/images/123.jpg',
-                  height: 250, // Set the height as needed
-                  width: 250, // Set the width as needed
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // First Image (same as the one above)
+                Expanded(
+                  child: Image.asset(
+                    'assets/images/123.jpg',
+                    height: 250, // Set the height as needed
+                    width: 250, // Set the width as needed
+                  ),
                 ),
-              ),
-              // Text
-              // Text with bold, cursive, and massive font style
-              Expanded(
-                child: Center(
-                  child: Text(
-                    'Rhapsody in Rose',
-                    style: GoogleFonts.pacifico(
-                      textStyle: const TextStyle(
-                        fontSize: 50, // Set the font size as needed
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic,
+                // Text
+                // Text with bold, cursive, and massive font style
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      'Rhapsody in Rose',
+                      style: GoogleFonts.pacifico(
+                        textStyle: const TextStyle(
+                          fontSize: 50, // Set the font size as needed
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FontStyle.italic,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              // Second Image (same as the one above)
-              Expanded(
-                child: Image.asset(
-                  'assets/images/123.jpg',
-                  height: 250, // Set the height as needed
-                  width: 250, // Set the width as needed
+                // Second Image (same as the one above)
+                Expanded(
+                  child: Image.asset(
+                    'assets/images/123.jpg',
+                    height: 250, // Set the height as needed
+                    width: 250, // Set the width as needed
+                  ),
                 ),
-              ),
-            ],
-          ),
-          // Other content below the image
+              ],
+            ),
+            // Other content below the image
 
-          const SizedBox(height: 50),
-          // Centered Text with "How may we help you?" in a large font
-          const Center(
-            child: Text(
-              'How may we help you?',
-              style: TextStyle(
-                fontSize: 36, // Set the font size as needed
-                fontWeight: FontWeight.bold,
+            const SizedBox(height: 50),
+            // Centered Text with "How may we help you?" in a large font
+            const Center(
+              child: Text(
+                'How may we help you?',
+                style: TextStyle(
+                  fontSize: 36, // Set the font size as needed
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
 
-          const SizedBox(height: 25),
+            const SizedBox(height: 25),
 
-          // Row with four styled square buttons
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const RoomsScreen()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 255, 210, 251),
-                  padding: const EdgeInsets.all(8),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+            // Row with four styled square buttons
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RoomsScreen()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 255, 210, 251),
+                    padding: const EdgeInsets.all(8),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ).copyWith(
+                      fixedSize:
+                          MaterialStateProperty.all(const Size(150, 50))),
+                  child: const Text(
+                    'Rooms',
+                    style: TextStyle(fontSize: 18),
                   ),
-                ).copyWith(
-                    fixedSize: MaterialStateProperty.all(const Size(150, 50))),
-                child: const Text(
-                  'Rooms',
-                  style: TextStyle(fontSize: 18),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MenuScreen()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 255, 210, 251),
-                  padding: const EdgeInsets.all(8),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MenuScreen()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 255, 210, 251),
+                    padding: const EdgeInsets.all(8),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ).copyWith(
+                      fixedSize:
+                          MaterialStateProperty.all(const Size(150, 50))),
+                  child: const Text(
+                    'Menu',
+                    style: TextStyle(fontSize: 18),
                   ),
-                ).copyWith(
-                    fixedSize: MaterialStateProperty.all(const Size(150, 50))),
-                child: const Text(
-                  'Menu',
-                  style: TextStyle(fontSize: 18),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AboutUsScreen()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 255, 210, 251),
-                  padding: const EdgeInsets.all(8),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AboutUsScreen()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 255, 210, 251),
+                    padding: const EdgeInsets.all(8),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ).copyWith(
+                      fixedSize:
+                          MaterialStateProperty.all(const Size(150, 50))),
+                  child: const Text(
+                    'About Us',
+                    style: TextStyle(fontSize: 18),
                   ),
-                ).copyWith(
-                    fixedSize: MaterialStateProperty.all(const Size(150, 50))),
-                child: const Text(
-                  'About Us',
-                  style: TextStyle(fontSize: 18),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ContactScreen()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 255, 210, 251),
-                  padding: const EdgeInsets.all(8),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ContactScreen()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 255, 210, 251),
+                    padding: const EdgeInsets.all(8),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ).copyWith(
+                      fixedSize:
+                          MaterialStateProperty.all(const Size(150, 50))),
+                  child: const Text(
+                    'Contact',
+                    style: TextStyle(fontSize: 18),
                   ),
-                ).copyWith(
-                    fixedSize: MaterialStateProperty.all(const Size(150, 50))),
-                child: const Text(
-                  'Contact',
-                  style: TextStyle(fontSize: 18),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

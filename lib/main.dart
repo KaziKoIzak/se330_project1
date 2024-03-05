@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import './widgets/aboutUsScreen.dart';
-import './widgets/contactScreen.dart';
-import './widgets/menuScreen.dart';
-import './widgets/roomsScreen.dart';
+import 'widgets/about_us_screen.dart';
+import 'widgets/contact_screen.dart';
+import 'widgets/menu_screen.dart';
+import 'widgets/rooms_screen.dart';
 import './widgets/banner.dart';
 
 void main() => runApp(const MyApp());

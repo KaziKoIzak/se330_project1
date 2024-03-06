@@ -41,7 +41,7 @@ class AboutUsScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: Image.asset(
-                    'assets/images/902.jpg', // Replace with your left image asset
+                    'assets/images/235.jpg', // Replace with your left image asset
                     width: 200.0, // Adjust width as needed
                     height: 250.0, // Adjust height as needed
                   ),
@@ -62,7 +62,7 @@ class AboutUsScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: Image.asset(
-                    'assets/images/902.jpg', // Replace with your right image asset
+                    'assets/images/235.jpg', // Replace with your right image asset
                     width: 200.0, // Adjust width as needed
                     height: 250.0, // Adjust height as needed
                   ),
@@ -77,7 +77,7 @@ class AboutUsScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Image.asset(
-                    'assets/images/1012.jpg', // Replace with your left image asset
+                    'assets/images/345.jpg', // Replace with your left image asset
                     width: 350.0, // Adjust width as needed
                     height: 300.0, // Adjust height as needed
                   ),

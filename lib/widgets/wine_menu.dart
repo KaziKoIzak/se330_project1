@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:se330_project1/widgets/red_wine_menu.dart';
+import 'package:se330_project1/widgets/white_wine_menu.dart';
+import 'about_us_screen.dart';
 import 'menu_screen.dart';
 import 'checkout_screen.dart';
 import 'rooms_screen.dart';
@@ -88,7 +91,7 @@ class WineMenu extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const WineMenu()),
+                              builder: (context) => const RedWineScreen()),
                         );
                       },
                       child: Column(
@@ -120,7 +123,13 @@ class WineMenu extends StatelessWidget {
                         shape: const RoundedRectangleBorder(),
                         side: const BorderSide(width: 2, color: Colors.black),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const WhiteWineScreen()),
+                        );
+                      },
                       child: Column(
                         children: [
                           const Expanded(

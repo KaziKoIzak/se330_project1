@@ -183,6 +183,7 @@ class _RoomsScreenState extends State<RoomsScreen> {
                               ElevatedButton(
                                 onPressed: () {
                                   // Handle submit button press
+
                                   // Get the SelectedItemsProvider
                                   SelectedItemsProvider selectedItemsProvider =
                                       Provider.of<SelectedItemsProvider>(
@@ -192,15 +193,21 @@ class _RoomsScreenState extends State<RoomsScreen> {
                                   // Determine the current room based on the selectedRoom
                                   String currentRoom = selectedRoom;
 
-                                  // Add the selected item to the provider
+                                  // Get the corresponding RoomDetails
+                                  RoomDetails currentRoomDetails =
+                                      roomDetailsMap[currentRoom]!;
+
+                                  // Add the selected item to the provider with the room's specific price
                                   selectedItemsProvider.addItem(Item(
                                     itemType: ItemType.room,
                                     name: currentRoom,
                                     quantity:
                                         1, // You can adjust the quantity as needed
-                                    price:
-                                        2554.123, // Replace with the actual price
+                                    price: currentRoomDetails
+                                        .price, // Use the room's specific price
                                   ));
+
+                                  // Add any other items or logic related to the submission
                                 },
                                 child: const Text('Submit'),
                               ),

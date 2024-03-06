@@ -79,42 +79,118 @@ class CheckoutScreen extends StatelessWidget {
               Expanded(
                 child: Container(
                   height: 500,
+                  width: 300,
                   margin: const EdgeInsets.only(left: 60, right: 60),
                   padding: const EdgeInsets.all(16.0),
                   decoration: BoxDecoration(
                     color: Colors.grey[200],
-                    border: Border.all(
-                      color: Colors.black, // Border color
-                      width: 2.0, // Border width
-                    ),
-                    borderRadius: BorderRadius.circular(12.0), // Border radius
+                    border: Border.all(color: Colors.black),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.2), // Shadow color
-                        spreadRadius: 2.0, // Spread radius
-                        blurRadius: 5.0, // Blur radius
-                        offset: const Offset(0, 2), // Offset (x, y)
+                        color: Colors.black.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
                       ),
                     ],
                   ),
                   child: Consumer<SelectedItemsProvider>(
                     builder: (context, selectedItemsProvider, _) {
-                      // Use the selectedItemsProvider.selectedItems list
-                      return ListView.builder(
-                        itemCount: selectedItemsProvider.selectedItems.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          // Replace with your widget for each selected item
-                          return ListTile(
-                            title: Text(selectedItemsProvider
-                                .selectedItems[index].name),
-                            // Additional details or actions for each item can be added here
-                          );
-                        },
+                      if (selectedItemsProvider.selectedItems.isEmpty) {
+                        // If no items are selected, display a message or any desired content
+                        return const Center(
+                          child: Text(
+                            'No Room Selected',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        );
+                      }
+
+                      // Calculate total price
+                      double totalPrice = selectedItemsProvider.selectedItems
+                          .map((item) => item.price)
+                          .reduce((value, element) => value + element);
+
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Room Name with Bigger Font
+                          Text(
+                            selectedItemsProvider.selectedItems.first.name,
+                            style: const TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+
+                          // List of Checked-Out Items with Bigger Font
+                          Expanded(
+                            child: ListView.builder(
+                              itemCount:
+                                  selectedItemsProvider.selectedItems.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return ListTile(
+                                  title: Text(
+                                    selectedItemsProvider
+                                        .selectedItems[index].name,
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                  // Additional details or actions for each item can be added here
+                                );
+                              },
+                            ),
+                          ),
+
+                          // Price to the Right
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                'Price:',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                '\$${selectedItemsProvider.selectedItems.first.price.toStringAsFixed(2)}',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+
+                          // Total Price at Bottom Right
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              const Text(
+                                'Total:',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                '\$${totalPrice.toStringAsFixed(2)}',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       );
                     },
                   ),
                 ),
               ),
+
               // Second Child - Column with 5 Rows
               Expanded(
                 child: Column(

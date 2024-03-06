@@ -153,9 +153,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           );
                         }
 
-                        // Calculate total price
+// Calculate total price with updated quantities
                         double totalPrice = selectedItemsProvider.selectedItems
-                            .map((item) => item.price)
+                            .map((item) => item.price * item.quantity)
                             .reduce((value, element) => value + element);
 
                         // Apply discounts
@@ -187,6 +187,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           ),
                                         ),
                                         Text(
+                                          "${selectedItem.quantity}",
+                                          style: const TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Text(
                                           '\$${selectedItem.price.toStringAsFixed(2)}',
                                           style: const TextStyle(
                                             fontSize: 24,
@@ -197,8 +204,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           icon: const Icon(Icons.remove_circle),
                                           onPressed: () {
                                             setState(() {
-                                              selectedItemsProvider
-                                                  .removeItem(selectedItem);
+                                              if (selectedItem.quantity > 1) {
+                                                // If quantity is more than 1, decrement quantity
+                                                selectedItem.quantity -= 1;
+                                              } else {
+                                                // If quantity is 1, remove the item
+                                                selectedItemsProvider
+                                                    .removeItem(selectedItem);
+                                              }
                                             });
                                           },
                                         ),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'widgets/about_us_screen.dart';
-import 'widgets/checkout_screen.dart';
-import 'widgets/menu_screen.dart';
-import 'widgets/rooms_screen.dart';
+import 'pages/about_us_screen.dart';
+import 'pages/checkout_screen.dart';
+import 'pages/menu_screen.dart';
+import 'pages/rooms_screen.dart';
 import './widgets/banner.dart';
 import 'data/selected_items_provider.dart';
 

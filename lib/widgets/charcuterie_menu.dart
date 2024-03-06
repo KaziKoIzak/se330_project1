@@ -4,6 +4,9 @@ import 'checkout_screen.dart';
 import 'menu_screen.dart';
 import 'rooms_screen.dart';
 import 'banner.dart';
+import 'package:provider/provider.dart';
+import '../data/selected_items_provider.dart';
+import '../data/items.dart';
 
 class CharcutterieMenu extends StatefulWidget {
   const CharcutterieMenu({Key? key}) : super(key: key);
@@ -20,21 +23,25 @@ class _CharcutterieScreenState extends State<CharcutterieMenu> {
       image: 'assets/images/568.jpg',
       paragraph:
           'Our year-round classic board includes our selections of Salami, Smoked Ham, Sliced Baguettes, Various Crackers, Bread Sticks, Buffalo Pimento Cheese, Pecans, and Assortments of Olives, Pickles and Jams.',
+      price: 100.0, // Set the price for Classic board
     ),
     'Vegetarian': BoardDetails(
       image: 'assets/images/890.jpg',
       paragraph:
           'Our year-round vegetarian board includes our Pimento Cheese Dip, Carmalized Onion Dip, Marinated Feta, Artichokes, Mushrooms, Olives, Chickpeas, Fig Jam, Carrots, Cucumbers, Radishes, Bell Peppers, Cherry Tomatoes, Brie, Cheddar, Manchego, Rosemary Crackers, and Almonds.',
+      price: 75.0, // Set the price for Vegetarian board
     ),
     'Fruit': BoardDetails(
       image: 'assets/images/234.jpg',
       paragraph:
           'Our seasonal fruit board includes our Chocolate-Cream Cheese Dip, Rasperry Yogurt Dip, Cantaloupe, Kiwi, Grapes, Watermelon Slices, Orange Slices, Strawberries, Blueberries, Blackberries, Brie, Manchego, and Honey.',
+      price: 50.0, // Set the price for Fruit board
     ),
     'Limited': BoardDetails(
       image: 'assets/images/891.jpg',
       paragraph:
           'Our current limited time board is named "Taco Tuesday" which includes our Fresh Corn Salsa, Seasoned Ground Beef, Refried Black Beans, Mild Salsa, Verde Salsa, Pickled Jalapenos, Iceberg Lettuce, Creme de Fresca, Radishes, and Cilantro. The board also includes both Hard Taco Shells and Soft Flour Tortillas.',
+      price: 25.0, // Set the price for Limited board
     ),
   };
 
@@ -72,18 +79,18 @@ class _CharcutterieScreenState extends State<CharcutterieMenu> {
                 children: [
                   Expanded(
                     child: Image.asset(
-                      'assets/images/568.jpg', // Replace with your left image asset
-                      width: 200.0, // Adjust width as needed
-                      height: 250.0, // Adjust height as needed
+                      'assets/images/568.jpg',
+                      width: 200.0,
+                      height: 250.0,
                     ),
-                  ), // Adjust spacing between images
+                  ),
                   Expanded(
                     child: Center(
                       child: Text(
                         'Our Charcuterie Boards',
                         style: GoogleFonts.pacifico(
                           textStyle: const TextStyle(
-                            fontSize: 50, // Set the font size as needed
+                            fontSize: 50,
                             fontWeight: FontWeight.bold,
                             fontStyle: FontStyle.italic,
                           ),
@@ -94,9 +101,9 @@ class _CharcutterieScreenState extends State<CharcutterieMenu> {
                   ),
                   Expanded(
                     child: Image.asset(
-                      'assets/images/568.jpg', // Replace with your right image asset
-                      width: 200.0, // Adjust width as needed
-                      height: 250.0, // Adjust height as needed
+                      'assets/images/568.jpg',
+                      width: 200.0,
+                      height: 250.0,
                     ),
                   ),
                 ],
@@ -110,7 +117,7 @@ class _CharcutterieScreenState extends State<CharcutterieMenu> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      'We rotate our self-crafted charcutterie boards ',
+                      'We rotate our self-crafted charcuterie boards ',
                       style: TextStyle(
                         fontFamily: 'Helvetica',
                         fontSize: 20,
@@ -125,25 +132,21 @@ class _CharcutterieScreenState extends State<CharcutterieMenu> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                // 1. Image
                 Image.asset(
                   boardDetailsMap[selectedBoard]!.image,
                   height: 300,
                   width: 300,
                   fit: BoxFit.cover,
                 ),
-                // 2. Collection of Things
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // First Component (Top)
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            // Dropdown Box
                             DropdownButton<String>(
                               value: selectedBoard,
                               items: boardDetailsMap.keys.map((String room) {
@@ -158,11 +161,25 @@ class _CharcutterieScreenState extends State<CharcutterieMenu> {
                                 });
                               },
                             ),
+                            ElevatedButton(
+                              onPressed: () {
+                                Provider.of<SelectedItemsProvider>(context,
+                                        listen: false)
+                                    .addItem(
+                                  Item(
+                                    itemType: ItemType.charcuterie,
+                                    name: selectedBoard,
+                                    price:
+                                        boardDetailsMap[selectedBoard]!.price,
+                                    quantity: 1,
+                                  ),
+                                );
+                              },
+                              child: const Text('Submit'),
+                            ),
                           ],
                         ),
-                        // Second Component (Bottom)
                         const SizedBox(height: 16),
-                        // Text
                         Text(
                           boardDetailsMap[selectedBoard]!.paragraph,
                           style: const TextStyle(
@@ -186,9 +203,11 @@ class _CharcutterieScreenState extends State<CharcutterieMenu> {
 class BoardDetails {
   final String image;
   final String paragraph;
+  final double price;
 
   BoardDetails({
     required this.image,
     required this.paragraph,
+    required this.price,
   });
 }

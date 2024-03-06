@@ -7,6 +7,7 @@ import 'done_screen.dart';
 import 'banner.dart';
 import 'package:provider/provider.dart';
 import '../data/selected_items_provider.dart';
+import '../data/items.dart';
 
 class DiscountCheckbox extends StatefulWidget {
   final String label;
@@ -167,60 +168,73 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           children: [
                             // List of Checked-Out Items with Bigger Font
                             Expanded(
-                              child: ListView.builder(
-                                itemCount:
-                                    selectedItemsProvider.selectedItems.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  final selectedItem = selectedItemsProvider
-                                      .selectedItems[index];
+                                child: // Inside your CheckoutScreen class
+                                    ListView.builder(
+                              itemCount:
+                                  selectedItemsProvider.selectedItems.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                final selectedItem =
+                                    selectedItemsProvider.selectedItems[index];
 
-                                  return ListTile(
-                                    title: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          selectedItem.name,
-                                          style: const TextStyle(
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Text(
-                                          "${selectedItem.quantity}",
-                                          style: const TextStyle(
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Text(
-                                          '\$${selectedItem.price.toStringAsFixed(2)}',
-                                          style: const TextStyle(
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        IconButton(
-                                          icon: const Icon(Icons.remove_circle),
-                                          onPressed: () {
-                                            setState(() {
-                                              if (selectedItem.quantity > 1) {
-                                                // If quantity is more than 1, decrement quantity
-                                                selectedItem.quantity -= 1;
-                                              } else {
-                                                // If quantity is 1, remove the item
-                                                selectedItemsProvider
-                                                    .removeItem(selectedItem);
-                                              }
-                                            });
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
+                                // Define a TextStyle variable
+                                TextStyle itemTextStyle;
+
+                                // Conditionally set the text style based on itemType
+                                switch (selectedItem.itemType) {
+                                  case ItemType.charcuterie:
+                                  case ItemType.wine:
+                                    // Use a smaller font size and not bold for Charcuterie and Wine
+                                    itemTextStyle = const TextStyle(
+                                      fontSize: 18,
+                                    );
+                                    break;
+                                  default:
+                                    // Use the default style (bold and larger font size) for other items
+                                    itemTextStyle = const TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                    );
+                                    break;
+                                }
+
+                                return ListTile(
+                                  title: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        selectedItem.name,
+                                        style:
+                                            itemTextStyle, // Apply the defined text style
+                                      ),
+                                      Text(
+                                        "${selectedItem.quantity}",
+                                        style:
+                                            itemTextStyle, // Apply the defined text style
+                                      ),
+                                      Text(
+                                        '\$${selectedItem.price.toStringAsFixed(2)}',
+                                        style:
+                                            itemTextStyle, // Apply the defined text style
+                                      ),
+                                      IconButton(
+                                        icon: const Icon(Icons.remove_circle),
+                                        onPressed: () {
+                                          setState(() {
+                                            if (selectedItem.quantity > 1) {
+                                              selectedItem.quantity -= 1;
+                                            } else {
+                                              selectedItemsProvider
+                                                  .removeItem(selectedItem);
+                                            }
+                                          });
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            )),
 
                             // Total Price at Bottom Right
                             Row(

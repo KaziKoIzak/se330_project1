@@ -48,9 +48,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ],
             ),
           ),
-          const Expanded(
-            child: Center(
-              child: Text('Rhapsody in Rose', style: TextStyle(fontSize: 36)),
+          // Wrap the Text widget with GestureDetector
+          GestureDetector(
+            onTap: () {
+              // Navigate to the home page when the text is tapped
+              Navigator.of(context).popUntil((route) => route.isFirst);
+            },
+            child: const Expanded(
+              child: Center(
+                child: Text('Rhapsody in Rose', style: TextStyle(fontSize: 30)),
+              ),
             ),
           ),
           ConstrainedBox(

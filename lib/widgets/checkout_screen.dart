@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'about_us_screen.dart';
 import 'menu_screen.dart';
@@ -7,8 +8,50 @@ import 'banner.dart';
 import 'package:provider/provider.dart';
 import '../data/selected_items_provider.dart';
 
-class CheckoutScreen extends StatelessWidget {
+class DiscountCheckbox extends StatefulWidget {
+  final String label;
+  final void Function(bool?) onChanged;
+
+  const DiscountCheckbox({
+    required this.label,
+    required this.onChanged,
+  });
+
+  @override
+  _DiscountCheckboxState createState() => _DiscountCheckboxState();
+}
+
+class _DiscountCheckboxState extends State<DiscountCheckbox> {
+  bool isChecked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Checkbox(
+          value: isChecked,
+          onChanged: (value) {
+            setState(() {
+              isChecked = value ?? false;
+              widget.onChanged(value);
+            });
+          },
+        ),
+        Text(widget.label),
+      ],
+    );
+  }
+}
+
+class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({Key? key}) : super(key: key);
+
+  @override
+  _CheckoutScreenState createState() => _CheckoutScreenState();
+}
+
+class _CheckoutScreenState extends State<CheckoutScreen> {
+  List<double> discounts = [0.0, 0.0, 0.0, 0.0]; // Initial discounts
 
   @override
   Widget build(BuildContext context) {
@@ -115,6 +158,10 @@ class CheckoutScreen extends StatelessWidget {
                             .map((item) => item.price)
                             .reduce((value, element) => value + element);
 
+                        // Apply discounts
+                        double discountedTotal = totalPrice -
+                            (totalPrice * discounts.reduce((a, b) => a + b));
+
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -165,7 +212,7 @@ class CheckoutScreen extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  '\$${totalPrice.toStringAsFixed(2)}',
+                                  '\$${discountedTotal.toStringAsFixed(2)}',
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -336,7 +383,63 @@ class CheckoutScreen extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
+// Wrap the Row with Center
+            Container(
+              margin: const EdgeInsets.only(left: 60),
+              child: Row(
+                children: [
+                  DiscountCheckbox(
+                    label: 'Military',
+                    onChanged: (value) {
+                      if (value != null) {
+                        setState(() {
+                          discounts[0] = value
+                              ? 0.1
+                              : 0.0; // Set your desired discount value
+                        });
+                      }
+                    },
+                  ),
+                  DiscountCheckbox(
+                    label: 'Senior',
+                    onChanged: (value) {
+                      if (value != null) {
+                        setState(() {
+                          discounts[1] = value
+                              ? 0.2
+                              : 0.0; // Set your desired discount value
+                        });
+                      }
+                    },
+                  ),
+                  DiscountCheckbox(
+                    label: 'Early Bird',
+                    onChanged: (value) {
+                      if (value != null) {
+                        setState(() {
+                          discounts[2] = value
+                              ? 0.3
+                              : 0.0; // Set your desired discount value
+                        });
+                      }
+                    },
+                  ),
+                  DiscountCheckbox(
+                    label: 'Student',
+                    onChanged: (value) {
+                      if (value != null) {
+                        setState(() {
+                          discounts[3] = value
+                              ? 0.4
+                              : 0.0; // Set your desired discount value
+                        });
+                      }
+                    },
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

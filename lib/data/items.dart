@@ -4,6 +4,7 @@ enum ItemType {
   room,
   wine,
   charcuterie,
+  discount,
 }
 
 class Item {

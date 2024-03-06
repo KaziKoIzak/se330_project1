@@ -39,7 +39,7 @@ class CheckoutScreen extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
             height: 100,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Expanded(
                   child: Image.asset(

@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'checkout_screen.dart';
 import 'menu_screen.dart';
 import 'rooms_screen.dart';
-import 'banner.dart';
+import '../widgets/banner.dart';
 
 class RedWineScreen extends StatelessWidget {
   const RedWineScreen({Key? key}) : super(key: key);

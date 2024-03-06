@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:se330_project1/widgets/red_wine_menu.dart';
-import 'package:se330_project1/widgets/white_wine_menu.dart';
-import 'menu_screen.dart';
+import 'charcuterie_menu.dart';
+import 'about_us_screen.dart';
 import 'checkout_screen.dart';
 import 'rooms_screen.dart';
-import 'banner.dart';
+import 'wine_menu.dart';
+import '../widgets/banner.dart';
 
-class WineMenu extends StatelessWidget {
-  const WineMenu({Key? key}) : super(key: key);
+class MenuScreen extends StatelessWidget {
+  const MenuScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +20,10 @@ class WineMenu extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const RoomsScreen()),
           );
         },
-        onMenuPressed: () {
+        onAboutUsPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const MenuScreen()),
+            MaterialPageRoute(builder: (context) => const AboutUsScreen()),
           );
         },
         onCheckoutPressed: () {
@@ -37,40 +37,46 @@ class WineMenu extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
-              height: 250,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Image.asset(
-                      'assets/images/346.jpg', // Replace with your left image asset
-                      width: 200.0, // Adjust width as needed
-                      height: 250.0, // Adjust height as needed
-                    ),
-                  ), // Adjust spacing between images
-                  Expanded(
-                    child: Center(
-                      child: Text(
-                        'Our Wines',
-                        style: GoogleFonts.pacifico(
-                          textStyle: const TextStyle(
-                            fontSize: 50, // Set the font size as needed
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FontStyle.italic,
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+                height: 100,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          'Menu',
+                          style: GoogleFonts.pacifico(
+                            textStyle: const TextStyle(
+                              fontSize: 50,
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FontStyle.italic,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    child: Image.asset(
-                      'assets/images/346.jpg', // Replace with your right image asset
-                      width: 200.0, // Adjust width as needed
-                      height: 250.0, // Adjust height as needed
+                  ],
+                )),
+            Center(
+              child: Container(
+                padding: const EdgeInsets.all(16.0),
+                child: const Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
+                      'View our fabulous Wine and Charcutterie options by choosing an option below.',
+                      style: TextStyle(
+                        fontFamily: 'Helvetica',
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Center(
@@ -90,7 +96,7 @@ class WineMenu extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const RedWineScreen()),
+                              builder: (context) => const WineMenu()),
                         );
                       },
                       child: Column(
@@ -98,7 +104,7 @@ class WineMenu extends StatelessWidget {
                           const Expanded(
                             child: Center(
                               child: Text(
-                                'Red Wine',
+                                'Wine',
                                 style: TextStyle(
                                   fontSize: 40,
                                   fontWeight: FontWeight.bold,
@@ -108,7 +114,7 @@ class WineMenu extends StatelessWidget {
                           ),
                           Expanded(
                             child: Image.asset(
-                              'assets/images/567.jpg',
+                              'assets/images/901.jpg',
                               width: 250,
                               height: 250,
                             ),
@@ -126,7 +132,7 @@ class WineMenu extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const WhiteWineScreen()),
+                              builder: (context) => const CharcutterieMenu()),
                         );
                       },
                       child: Column(
@@ -134,7 +140,7 @@ class WineMenu extends StatelessWidget {
                           const Expanded(
                             child: Center(
                               child: Text(
-                                'White Wine',
+                                'Charcuterie Boards',
                                 style: TextStyle(
                                   fontSize: 40,
                                   fontWeight: FontWeight.bold,
@@ -144,7 +150,7 @@ class WineMenu extends StatelessWidget {
                           ),
                           Expanded(
                             child: Image.asset(
-                              'assets/images/679.jpg',
+                              'assets/images/568.jpg',
                               width: 250,
                               height: 250,
                             ),

@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'about_us_screen.dart';
 import 'checkout_screen.dart';
 import 'menu_screen.dart';
-import 'banner.dart';
+import '../widgets/banner.dart';
 import '../data/selected_items_provider.dart';
 import '../data/items.dart';
 

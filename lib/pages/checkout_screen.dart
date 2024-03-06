@@ -13,7 +13,7 @@ class DiscountCheckbox extends StatefulWidget {
   final String label;
   final void Function(bool?) onChanged;
 
-  const DiscountCheckbox({
+  const DiscountCheckbox({super.key, 
     required this.label,
     required this.onChanged,
   });
@@ -45,7 +45,7 @@ class _DiscountCheckboxState extends State<DiscountCheckbox> {
 }
 
 class CheckoutScreen extends StatefulWidget {
-  const CheckoutScreen({Key? key}) : super(key: key);
+  const CheckoutScreen({super.key});
 
   @override
   _CheckoutScreenState createState() => _CheckoutScreenState();

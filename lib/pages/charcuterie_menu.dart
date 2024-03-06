@@ -9,7 +9,7 @@ import '../data/selected_items_provider.dart';
 import '../data/items.dart';
 
 class CharcutterieMenu extends StatefulWidget {
-  const CharcutterieMenu({Key? key}) : super(key: key);
+  const CharcutterieMenu({super.key});
 
   @override
   _CharcutterieScreenState createState() => _CharcutterieScreenState();

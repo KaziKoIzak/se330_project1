@@ -9,7 +9,7 @@ import '../data/selected_items_provider.dart';
 import '../data/items.dart';
 
 class WhiteWineScreen extends StatelessWidget {
-  const WhiteWineScreen({Key? key}) : super(key: key);
+  const WhiteWineScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

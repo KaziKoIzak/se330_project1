@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'items.dart';
 
 class SelectedItemsProvider extends ChangeNotifier {
-  List<Item> _selectedItems = [];
+  final List<Item> _selectedItems = [];
 
   List<Item> get selectedItems => _selectedItems;
 

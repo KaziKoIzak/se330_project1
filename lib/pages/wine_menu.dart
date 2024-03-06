@@ -8,7 +8,7 @@ import 'rooms_screen.dart';
 import '../widgets/banner.dart';
 
 class WineMenu extends StatelessWidget {
-  const WineMenu({Key? key}) : super(key: key);
+  const WineMenu({super.key});
 
   @override
   Widget build(BuildContext context) {

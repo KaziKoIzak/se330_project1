@@ -22,7 +22,7 @@ class RoomDetails {
 }
 
 class RoomsScreen extends StatefulWidget {
-  const RoomsScreen({Key? key}) : super(key: key);
+  const RoomsScreen({super.key});
 
   @override
   _RoomsScreenState createState() => _RoomsScreenState();

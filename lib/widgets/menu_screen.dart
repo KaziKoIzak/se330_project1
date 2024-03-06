@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:se330_project1/widgets/charcutterie_menu.dart';
 import 'about_us_screen.dart';
 import 'checkout_screen.dart';
 import 'rooms_screen.dart';
@@ -127,13 +128,19 @@ class MenuScreen extends StatelessWidget {
                         shape: const RoundedRectangleBorder(),
                         side: const BorderSide(width: 2, color: Colors.black),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CharcutterieMenu()),
+                        );
+                      },
                       child: Column(
                         children: [
                           const Expanded(
                             child: Center(
                               child: Text(
-                                'Charcuterie',
+                                'Charcuterie Boards',
                                 style: TextStyle(
                                   fontSize: 40,
                                   fontWeight: FontWeight.bold,
@@ -143,7 +150,7 @@ class MenuScreen extends StatelessWidget {
                           ),
                           Expanded(
                             child: Image.asset(
-                              'assets/images/234.jpg',
+                              'assets/images/568.jpg',
                               width: 250,
                               height: 250,
                             ),

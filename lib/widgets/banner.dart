@@ -31,19 +31,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               children: [
                 TextButton(
                   onPressed: onRoomsPressed,
-                  child: const Text('Rooms', style: TextStyle(fontSize: 24)),
+                  child: const Text('Rooms', style: TextStyle(fontSize: 22)),
                 ),
                 TextButton(
                   onPressed: onMenuPressed,
-                  child: const Text('Menu', style: TextStyle(fontSize: 24)),
+                  child: const Text('Menu', style: TextStyle(fontSize: 22)),
                 ),
                 TextButton(
                   onPressed: onAboutUsPressed,
-                  child: const Text('About Us', style: TextStyle(fontSize: 24)),
+                  child: const Text('About Us', style: TextStyle(fontSize: 22)),
                 ),
                 TextButton(
                   onPressed: onCheckoutPressed,
-                  child: const Text('Contact', style: TextStyle(fontSize: 24)),
+                  child: const Text('Checkout', style: TextStyle(fontSize: 22)),
                 ),
               ],
             ),

@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'checkout_screen.dart';
 import 'menu_screen.dart';
 import 'rooms_screen.dart';
-import 'about_us_screen.dart';
 import 'banner.dart';
 
 class WhiteWineScreen extends StatelessWidget {

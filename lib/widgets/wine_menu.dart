@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'about_us_screen.dart';
 import 'menu_screen.dart';
 import 'checkout_screen.dart';
 import 'rooms_screen.dart';

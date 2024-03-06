@@ -44,18 +44,18 @@ class WhiteWineScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: Image.asset(
-                    'assets/images/679.jpg', // Replace with your left image asset
-                    width: 200.0, // Adjust width as needed
-                    height: 250.0, // Adjust height as needed
+                    'assets/images/679.jpg',
+                    width: 200.0,
+                    height: 250.0,
                   ),
-                ), // Adjust spacing between images
+                ),
                 Expanded(
                   child: Center(
                     child: Text(
                       'White Wines',
                       style: GoogleFonts.pacifico(
                         textStyle: const TextStyle(
-                          fontSize: 50, // Set the font size as needed
+                          fontSize: 50,
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic,
                         ),
@@ -65,9 +65,9 @@ class WhiteWineScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: Image.asset(
-                    'assets/images/679.jpg', // Replace with your right image asset
-                    width: 200.0, // Adjust width as needed
-                    height: 250.0, // Adjust height as needed
+                    'assets/images/679.jpg',
+                    width: 200.0,
+                    height: 250.0,
                   ),
                 ),
               ],
@@ -81,143 +81,29 @@ class WhiteWineScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                    child: Column(
-                      children: [
-                        const Expanded(
-                          child: Center(
-                            child: Text(
-                              'Chardonay',
-                              style: TextStyle(
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              // SelectedItemsProvider selectedItemsProvider =
-                              // Provider.of<SelectedItemsProvider>(
-                              //   context,
-                              //   listen: false);
-
-                              // String 'Chardonay' = selectedWine;
-                              // WineDetails currentWineDetails =
-                              //   wineDetailsMap['Chardonay']!;
-
-                              //   selectedItemsProvider.addItem(Item(
-                              //     itemType: ItemType.wine,
-                              //     name: 'Chardonay',
-                              //     quantity: 1,
-                              //     price: currentWineDetails.price,
-                              //   ));
-                            },
-                            child: const Text('Add To Checkout'),
-                          ),
-                        ),
-                        Expanded(
-                          child: Image.asset(
-                            'assets/images/905.jpg',
-                            width: 250,
-                            height: 250,
-                          ),
-                        ),
-                      ],
+                    child: buildWineColumn(
+                      'Chardonnay',
+                      'assets/images/905.jpg',
+                      845.23,
+                      context,
                     ),
                   ),
                   const SizedBox(width: 10.0),
                   Expanded(
-                    child: Column(
-                      children: [
-                        const Expanded(
-                          child: Center(
-                            child: Text(
-                              'Pinot Grigio',
-                              style: TextStyle(
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              // SelectedItemsProvider selectedItemsProvider =
-                              // Provider.of<SelectedItemsProvider>(
-                              //   context,
-                              //   listen: false);
-
-                              // String 'Pinot Grigio' = selectedWine;
-                              // WineDetails currentWineDetails =
-                              //   wineDetailsMap['Pinot Grigio']!;
-
-                              //   selectedItemsProvider.addItem(Item(
-                              //     itemType: ItemType.wine,
-                              //     name: 'Pinot Grigio',
-                              //     quantity: 1,
-                              //     price: currentWineDetails.price,
-                              //  ));
-                            },
-                            child: const Text('Add To Checkout'),
-                          ),
-                        ),
-                        Expanded(
-                          child: Image.asset(
-                            'assets/images/679.jpg',
-                            width: 250,
-                            height: 250,
-                          ),
-                        ),
-                      ],
+                    child: buildWineColumn(
+                      'Pinot Grigio',
+                      'assets/images/679.jpg',
+                      123.23,
+                      context,
                     ),
                   ),
                   const SizedBox(width: 10.0),
                   Expanded(
-                    child: Column(
-                      children: [
-                        const Expanded(
-                          child: Center(
-                            child: Text(
-                              'Sauvignon Blanc',
-                              style: TextStyle(
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              // SelectedItemsProvider selectedItemsProvider =
-                              // Provider.of<SelectedItemsProvider>(
-                              //   context,
-                              //   listen: false);
-
-                              // String 'Sauvignon Blancé ' = selectedWine;
-                              // WineDetails currentWineDetails =
-                              //   wineDetailsMap['Sauvignon Blanc ']!;
-
-                              //   selectedItemsProvider.addItem(Item(
-                              //     itemType: ItemType.wine,
-                              //     name: 'Sauvignon Blanc ',
-                              //     quantity: 1,
-                              //     price: currentWineDetails.price,
-                              // ));
-                            },
-                            child: const Text('Add To Checkout'),
-                          ),
-                        ),
-                        Expanded(
-                          child: Image.asset(
-                            'assets/images/906.jpg',
-                            width: 250,
-                            height: 250,
-                          ),
-                        ),
-                      ],
+                    child: buildWineColumn(
+                      'Sauvignon Blanc',
+                      'assets/images/906.jpg',
+                      234.45,
+                      context,
                     ),
                   ),
                 ],
@@ -226,6 +112,50 @@ class WhiteWineScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  // Helper method to build each wine column
+  Widget buildWineColumn(String wineName, String imagePath, double priceHeight,
+      BuildContext context) {
+    return Column(
+      children: [
+        ElevatedButton(
+          onPressed: () {
+            // When the button is pressed, add the wine item to selectedItems
+            Provider.of<SelectedItemsProvider>(context, listen: false).addItem(
+              Item(
+                  itemType: ItemType.wine,
+                  name: wineName,
+                  quantity: 1,
+                  price: priceHeight // Set the price for the wine item,
+                  ),
+            );
+          },
+          child: Text(
+            'Select $wineName',
+            style: const TextStyle(fontSize: 16),
+          ),
+        ),
+        Expanded(
+          child: Center(
+            child: Text(
+              wineName,
+              style: const TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Image.asset(
+            imagePath,
+            width: 250,
+            height: 250,
+          ),
+        ),
+      ],
     );
   }
 }

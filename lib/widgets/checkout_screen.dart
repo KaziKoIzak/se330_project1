@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'about_us_screen.dart';
 import 'menu_screen.dart';
@@ -193,9 +192,17 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
+                                        IconButton(
+                                          icon: const Icon(Icons.remove_circle),
+                                          onPressed: () {
+                                            setState(() {
+                                              selectedItemsProvider
+                                                  .removeItem(selectedItem);
+                                            });
+                                          },
+                                        ),
                                       ],
                                     ),
-                                    // Additional details or actions for each item can be added here
                                   );
                                 },
                               ),

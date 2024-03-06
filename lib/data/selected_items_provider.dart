@@ -8,4 +8,9 @@ class SelectedItemsProvider extends ChangeNotifier {
     selectedItems.add(item);
     notifyListeners();
   }
+
+  void removeItem(Item item) {
+    selectedItems.remove(item);
+    notifyListeners();
+  }
 }

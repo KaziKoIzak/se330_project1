@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'about_us_screen.dart';
 import 'menu_screen.dart';
 import 'rooms_screen.dart';
+import 'done_screen.dart';
 import 'banner.dart';
 import 'package:provider/provider.dart';
 import '../data/selected_items_provider.dart';
@@ -443,6 +444,21 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         });
                       }
                     },
+                  ),
+                  const Spacer(), // Add a spacer to push the submit button to the right
+                  Container(
+                    margin: const EdgeInsets.only(right: 20),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Navigate to the DoneScreen when the button is pressed
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DoneScreen()),
+                        );
+                      },
+                      child: const Text('Submit'),
+                    ),
                   ),
                 ],
               ),

@@ -34,83 +34,86 @@ class WhiteWineScreen extends StatelessWidget {
           );
         },
       ),
-      body: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
-            height: 250,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Image.asset(
-                    'assets/images/679.jpg',
-                    width: 200.0,
-                    height: 250.0,
-                  ),
-                ),
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      'White Wines',
-                      style: GoogleFonts.pacifico(
-                        textStyle: const TextStyle(
-                          fontSize: 50,
-                          fontWeight: FontWeight.bold,
-                          fontStyle: FontStyle.italic,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Image.asset(
-                    'assets/images/679.jpg',
-                    width: 200.0,
-                    height: 250.0,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Center(
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 150, vertical: 10),
-              height: 400,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+              height: 250,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                    child: buildWineColumn(
-                      'Chardonnay',
-                      'assets/images/905.jpg',
-                      845.23,
-                      context,
-                    ),
-                  ),
-                  const SizedBox(width: 10.0),
-                  Expanded(
-                    child: buildWineColumn(
-                      'Pinot Grigio',
+                    child: Image.asset(
                       'assets/images/679.jpg',
-                      123.23,
-                      context,
+                      width: 200.0,
+                      height: 250.0,
                     ),
                   ),
-                  const SizedBox(width: 10.0),
                   Expanded(
-                    child: buildWineColumn(
-                      'Sauvignon Blanc',
-                      'assets/images/906.jpg',
-                      234.45,
-                      context,
+                    child: Center(
+                      child: Text(
+                        'White Wines',
+                        style: GoogleFonts.pacifico(
+                          textStyle: const TextStyle(
+                            fontSize: 50,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Image.asset(
+                      'assets/images/679.jpg',
+                      width: 200.0,
+                      height: 250.0,
                     ),
                   ),
                 ],
               ),
             ),
-          ),
-        ],
+            Center(
+              child: Container(
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 150, vertical: 10),
+                height: 400,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: buildWineColumn(
+                        'Chardonnay',
+                        'assets/images/905.jpg',
+                        845.23,
+                        context,
+                      ),
+                    ),
+                    const SizedBox(width: 10.0),
+                    Expanded(
+                      child: buildWineColumn(
+                        'Pinot Grigio',
+                        'assets/images/679.jpg',
+                        123.23,
+                        context,
+                      ),
+                    ),
+                    const SizedBox(width: 10.0),
+                    Expanded(
+                      child: buildWineColumn(
+                        'Sauvignon Blanc',
+                        'assets/images/906.jpg',
+                        234.45,
+                        context,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

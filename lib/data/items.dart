@@ -10,7 +10,7 @@ class Item {
   ItemType itemType;
   String name;
   int quantity;
-  Float price;
+  double price;
 
   Item({
     required this.itemType,

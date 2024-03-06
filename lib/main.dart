@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'widgets/about_us_screen.dart';
 import 'widgets/checkout_screen.dart';
 import 'widgets/menu_screen.dart';
 import 'widgets/rooms_screen.dart';
 import './widgets/banner.dart';
+import 'data/selected_items_provider.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => SelectedItemsProvider(),
+      child: const MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

@@ -1,9 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'about_us_screen.dart';
 import 'checkout_screen.dart';
 import 'menu_screen.dart';
 import 'banner.dart';
+import '../data/selected_items_provider.dart';
+import '../data/items.dart';
+
+// RoomDetails class with price property
+class RoomDetails {
+  final String image;
+  final String paragraph;
+  final double price; // Add the price property
+
+  RoomDetails({
+    required this.image,
+    required this.paragraph,
+    required this.price,
+  });
+}
 
 class RoomsScreen extends StatefulWidget {
   const RoomsScreen({Key? key}) : super(key: key);
@@ -15,7 +31,7 @@ class RoomsScreen extends StatefulWidget {
 class _RoomsScreenState extends State<RoomsScreen> {
   String selectedRoom = 'Room 1'; // Default selected room
 
-  // Map to associate rooms with their respective images and paragraphs
+  // Map to associate rooms with their respective images, paragraphs, and prices
   Map<String, RoomDetails> roomDetailsMap = {
     'Room 1': RoomDetails(
       image: 'assets/images/124.jpg',
@@ -23,6 +39,7 @@ class _RoomsScreenState extends State<RoomsScreen> {
           'Step into our charming room at Rhapsody in Rose, where comfort meets class in the most welcoming way. Nestled with two cozy chairs and shelves stacked with an array of wines, this space is like a warm hug for good times. It'
           's the perfect spot for a laid-back gathering or a catch-up session with friends—no wine expertise required, just a good sense of humor and a love for relaxed conversations. Imagine settling into those comfy chairs with a glass of your favorite red or white, sharing stories, and creating memories. Whether it'
           's a small reunion or a low-key celebration, this room sets the stage for an inviting and easygoing event, tailor-made for middle-aged and older folks who appreciate the finer things in life without the fuss. Cheers to good company and great wine in a room that feels just like home.',
+      price: 150.25, // Add the price for Room 1
     ),
     'Room 2': RoomDetails(
       image: 'assets/images/345.jpg',
@@ -31,12 +48,14 @@ class _RoomsScreenState extends State<RoomsScreen> {
           's not just a room; it'
           's an invitation to unwind, connect, and savor the simple pleasures of life. Whether it'
           's a casual evening with friends or a family get-together, the appeal of this room lies in its ability to foster connection and create lasting memories, making it a favorite among consumers seeking a genuine and delightful experience.',
+      price: 250.50, // Add the price for Room 2
     ),
     'Room 3': RoomDetails(
       image: 'assets/images/457.jpg',
       paragraph:
           'Discover the cozy embrace of our two-seated room at Rhapsody in Rose, where the charm of natural wood accents creates an inviting ambiance. The room features two comfortable chairs nestled around a table, set against a backdrop of warm, wooden tones that evoke a sense of homely comfort. Surrounded by wine cabinets showcasing a curated selection, this space is an intimate retreat for couples or close friends looking to share a quiet moment. The natural elements bring a touch of rustic elegance, making it a favorite for those who appreciate the authenticity of materials and the soothing presence of nature. It'
           's the ideal spot for a romantic date night or a close-knit conversation, providing a cozy escape that feels both intimate and welcoming. In this room, the allure lies in the simplicity of design and the warmth of natural wood, creating a haven for connection and relaxation.',
+      price: 350.75, // Add the price for Room 3
     ),
   };
 
@@ -164,6 +183,24 @@ class _RoomsScreenState extends State<RoomsScreen> {
                               ElevatedButton(
                                 onPressed: () {
                                   // Handle submit button press
+                                  // Get the SelectedItemsProvider
+                                  SelectedItemsProvider selectedItemsProvider =
+                                      Provider.of<SelectedItemsProvider>(
+                                          context,
+                                          listen: false);
+
+                                  // Determine the current room based on the selectedRoom
+                                  String currentRoom = selectedRoom;
+
+                                  // Add the selected item to the provider
+                                  selectedItemsProvider.addItem(Item(
+                                    itemType: ItemType.room,
+                                    name: currentRoom,
+                                    quantity:
+                                        1, // You can adjust the quantity as needed
+                                    price:
+                                        2554.123, // Replace with the actual price
+                                  ));
                                 },
                                 child: const Text('Submit'),
                               ),
@@ -191,14 +228,4 @@ class _RoomsScreenState extends State<RoomsScreen> {
       ),
     );
   }
-}
-
-class RoomDetails {
-  final String image;
-  final String paragraph;
-
-  RoomDetails({
-    required this.image,
-    required this.paragraph,
-  });
 }

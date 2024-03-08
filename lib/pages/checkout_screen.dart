@@ -73,6 +73,7 @@ class CheckoutScreen extends StatefulWidget {
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
   List<double> discounts = [0.0, 0.0, 0.0, 0.0]; // Initial discounts
+  bool hasHiddenDiscount = false;
 
   // Create a GlobalKey for the form
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -112,11 +113,46 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   void _submitForm() {
     // Validate the form before submission
     if (_formKey.currentState?.validate() ?? false) {
+      _checkHiddenDiscounts();
+
       // Save form data or perform other actions before navigating to DoneScreen
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const DoneScreen()),
       );
+    }
+  }
+
+  void _checkHiddenDiscounts() {
+    // Check for hidden discounts based on selected items
+    final selectedItemsProvider =
+        Provider.of<SelectedItemsProvider>(context, listen: false);
+
+    // Check for four wines, three rooms, and two Charcuterie boards
+    int wineCount = selectedItemsProvider.selectedItems
+        .where((item) => item.itemType == ItemType.wine)
+        .length;
+    int roomCount = selectedItemsProvider.selectedItems
+        .where((item) => item.itemType == ItemType.room)
+        .length;
+    int charcuterieCount = selectedItemsProvider.selectedItems
+        .where((item) => item.itemType == ItemType.charcuterie)
+        .length;
+
+    hasHiddenDiscount = false;
+
+    if (wineCount == 4) {
+      // Apply 10% hidden discount for four wines
+      hasHiddenDiscount = true;
+      discounts[0] += 0.1;
+    } else if (roomCount == 3) {
+      // Apply 20% hidden discount for three rooms
+      hasHiddenDiscount = true;
+      discounts[1] += 0.2;
+    } else if (charcuterieCount == 2) {
+      // Apply 30% hidden discount for two Charcuterie boards
+      hasHiddenDiscount = true;
+      discounts[2] += 0.3;
     }
   }
 

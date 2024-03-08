@@ -162,4 +162,3 @@ class RedWineScreen extends StatelessWidget {
     );
   }
 }
-
